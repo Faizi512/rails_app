@@ -1,4 +1,3 @@
-alert("js has been loaded")
 var isEmail =false
 var isPhone =false
 var currentTab = 0; // Current tab is set to be the first tab (0)

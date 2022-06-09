@@ -7,12 +7,13 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("packs/example")
-require("packs/bootstrap.bundle.min")
-require("packs/form")
-require("packs/jquery.min")
-require("packs/parsley")
-require("packs/rangeslider.min")
+require('jquery')
+require("./bootstrap.bundle.min")
+require("./form")
+require("./parsley")
+require("./rangeslider.min")
+
+
 
 
 
