@@ -1,18 +1,15 @@
 import "./parsley"
 import "./rangeslider.min"
 
+$( document ).ready(function() {
+  
+
 
 var isEmail =false
 var isPhone =false
 var currentTab = 0; // Current tab is set to be the first tab (0)
- // Display the current tab
+showTab(currentTab); // Display the current tab
 var formValidation = {};
-
-window.onload = function() {
-  showTab(currentTab);
-};
-  // showTab(currentTab);
-
 validate();
 
   function numberWithCommas(x) {
@@ -33,21 +30,22 @@ validate();
     }
   });
 
-  $( "#btn-submit").click(function() {
+  $(".btn-next").click(function(){
+    nextStep(1)
+  });
+
+  $( "#btn-submit" ).click(function() {
     if (anOtherValidate() == true) {
       $('#btn-submit').prop('disabled', true);
       postData();
     }
   });
-    
-    $( "#what-bring").change(function() {
-      debugger
-      if ($("input[name='what-bring']:checked").val() !== "") {
-        nextStep(1);
-      }
-    });
 
-
+  $( ".what-bring" ).change(function() {
+    if ($("input[name='what-bring']:checked").val() !== "") {
+      nextStep(1);
+    }
+  });
 
   $( ".interest-paid-type" ).change(function() {
     if ($("input[name='interest-paid-type']:checked").val() !== "") {
@@ -56,12 +54,12 @@ validate();
   });
 
   window.onload = function onPageLoad() {
-      $("#clickid").val(getUrlParameter("lid")  || "");
+    $("#clickid").val(getUrlParameter("lid")  || "");
   }
 
   function showTab(n) {
     // This function will display the specified tab of the form ...
-    var x = document.getElementsByClassName('tab');
+    var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
     fixStepIndicator(n)
   }
@@ -157,8 +155,6 @@ validate();
     return true
   }
   function validate(){
-    debugger
-    let a = $("#dealform")
     formValidation = $('#dealform').parsley({
       trigger: "focusout",
       errorClass: 'error',
@@ -317,3 +313,5 @@ validate();
     }
     return i;
   }
+
+});

@@ -9,10 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 require("./bootstrap.bundle.min")
-require("./form")
-require("./parsley")
 require("./rangeslider.min")
-
+require("./parsley")
+require("./form")
 
 
 
