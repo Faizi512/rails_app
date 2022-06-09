@@ -1,3 +1,7 @@
+import "./parsley"
+import "./rangeslider.min"
+
+
 var isEmail =false
 var isPhone =false
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -153,6 +157,8 @@ validate();
     return true
   }
   function validate(){
+    debugger
+    let a = $("#dealform")
     formValidation = $('#dealform').parsley({
       trigger: "focusout",
       errorClass: 'error',
@@ -238,7 +244,6 @@ validate();
 
 
   function fixStepIndicator(num) {
-    debugger
     var progress = document.getElementById('progressBar');
     if(num >= 0) {
       progress.style.width = (num*20)+"%";
