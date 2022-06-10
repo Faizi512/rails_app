@@ -43,6 +43,9 @@ font-family: 'Nunito Sans', sans-serif;
 .feature span{ background: #009ad0; border-radius: 6px; padding:10px 10px; margin: 0 8px 0 0}
 .feature a{ font-size: 20px; color:#6b6b6b!important; font-weight: 600!important; text-decoration: none; }
 
+.feature2{ background: #f1f1f1; padding:15px; display: flex;}
+.feature2 span{ background: #0011c3; border-radius: 6px; padding:10px 10px; margin: 0 8px 0 0}
+.feature2 a{ font-size: 20px; color:#6b6b6b!important; font-weight: 600!important; text-decoration: none; }
 .comp_box { 
   border-style: solid; margin:15px 0px;
   border-width: 1px; padding: 15px;
@@ -56,6 +59,17 @@ font-family: 'Nunito Sans', sans-serif;
   border-radius: 15px; height: 120px;  
   background-color: rgb(0, 154, 208); 
 }
+
+
+.comp_box_bg2 { position:relative; text-align: center;
+  border-radius: 15px; height: 120px;  
+  background-color:#0011c3 !important; 
+}
+
+.comp_box_bg2 { position:relative; text-align: center;
+  border-radius: 15px; height: 120px;  
+  background-color: #0011c3 !important; 
+}
 .comp_box_bg h2{ font-size:20px; font-weight:800; color: #fff; }
 .comp_box_bg01{ text-align: center; margin:60px 0 20px 0px;}
 .comp_box_bg01 h3{ font-size:24px; font-weight:900; color:#009ad0;}
@@ -63,15 +77,30 @@ font-family: 'Nunito Sans', sans-serif;
 
  .comp_box_bg .cercle{position: absolute;text-align: center; top:60px; z-index:9; background:#f1f1f1;width:100px;height:100px; border-radius:100px;margin: 0 36%;} 
 
+ .comp_box_bg2 h2{ font-size:20px; font-weight:800; color: #fff; }
+ .comp_box_bg02{ text-align: center; margin:60px 0 20px 0px;}
+ .comp_box_bg02 h3{ font-size:24px; font-weight:900; color:#0011c3 !important;}
+ .comp_box_bg02 p{ font-size:16px; text-transform: uppercase; font-weight:700; color:#6b6b6b;}
+ 
+  .comp_box_bg2 .cercle{position: absolute;text-align: center; top:60px; z-index:9; background:#f1f1f1;width:100px;height:100px; border-radius:100px;margin: 0 36%;} 
+ 
+
 .cercle img{ padding:22px 0px;} 
 
 .feature_had{ text-align:center;}
 .feature_had h1{ font-size: 36px; color: #1F1F1F; font-weight:normal;}
 .feature_had span{ font-size: 36px; color: #009ad0; font-weight:900;} 
 
+.feature_had2{ text-align:center;}
+.feature_had2 h1{ font-size: 36px; color: #1F1F1F; font-weight:normal;}
+.feature_had2 span{ font-size: 36px; color: #0011c3 !important; font-weight:900;} 
+
 .privacy{ text-align: center;}
+.privacy2{ text-align: center;}
 .privacy h4{ font-size:28px; text-transform: uppercase; color: #009ad0; font-weight:900;} 
+.privacy2 h4{ font-size:28px; text-transform: uppercase; color: #0011c3; font-weight:900;} 
 .privacy p{ font-size: 16px; color:#6b6b6b;}
+.privacy2 p{ font-size: 16px; color:#6b6b6b;}
 .ftr_bg{ background:#333333; text-align: center;}
 .ftr_bg h6{ font-size: 18px; color: #fff; font-weight: 700; margin: 0px; padding:20px 0px;}
 
@@ -109,7 +138,9 @@ font-family: 'Nunito Sans', sans-serif;
     align-items: center !important;
 }
 
-
+.aus_color{
+  color: #0011c3 !important;
+}
 
 
 .copyright a {

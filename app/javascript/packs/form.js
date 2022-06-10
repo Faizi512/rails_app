@@ -2,8 +2,10 @@ import "./parsley"
 import "./rangeslider.min"
 
 $( document ).ready(function() {
-  
-
+  $(".back-btn")[0].attributes.style.display = "none"
+  $(".back-btn").click(function(){
+    nextStep(-1)
+  });
 
 var isEmail =false
 var isPhone =false
@@ -11,6 +13,8 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 var formValidation = {};
 validate();
+
+  
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

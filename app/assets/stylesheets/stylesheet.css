@@ -65,6 +65,13 @@
   color: #fff;
   background: #009ad0;
 }
+.radio-btn2{
+  /* box-shadow: 0 1px 3px rgba(0,0,0,.3); */
+  border-radius: 8px;
+  padding: 12px 13px;
+  color: #fff;
+  background: #0011c3;
+}
 .radio-btn:hover{
   box-shadow: 0 1px 9px rgba(0,0,0,.3);
   cursor: pointer;
