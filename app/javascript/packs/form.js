@@ -2,7 +2,7 @@ import "./parsley"
 import "./rangeslider.min"
 
 $( document ).ready(function() {
-  $(".back-btn")[0].attributes.style.display = "none"
+ 
   $(".back-btn").click(function(){
     nextStep(-1)
   });
