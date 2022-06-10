@@ -89,6 +89,7 @@ font-family: 'Nunito Sans', sans-serif;
 /* ============ desktop view .end// ============ */
  
 .upper_bg{ background:#4d85dc url("ibg.jpg") center top no-repeat;  padding:3% 0;}
+.upper_bg_aus{ background:url("ibj12.jpg") center top no-repeat !important; padding:3% 0;} 
 
 .bnr_bg{ padding:5% 0; background:#09204c url("../images/bnr.png") no-repeat top center; text-align: center;}
 .bnr_bg h4{ font-size: 3vw; color: #fff; font-weight: 900; text-transform: uppercase;}
