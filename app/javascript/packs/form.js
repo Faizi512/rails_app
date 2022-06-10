@@ -35,7 +35,8 @@ validate();
   });
 
   $( "#btn-submit" ).click(function() {
-    if (anOtherValidate() == true) {
+    if (anOtherValidate() == true && isEmail == true && isPhone == true) {
+      debugger
       $('#btn-submit').prop('disabled', true);
       postData();
     }
@@ -178,23 +179,9 @@ validate();
    function validatePhone(){
       window.Parsley.addValidator('validphone', {
         validateString: function(value){
-          var options = {
-            DefaultCountryCode: iti.selectedCountryData.dialCode,
-            BarredPrefixes: "",
-            AllowedPrefixes: "",
-          };
-          var params = {
-            number: $(".phone").val(),
-            options: options
-          };
-
-         var xhr = $.ajax("https://webservices.data-8.co.uk/MobileValidation/IsValid.json?key=X479-GTNM-TWEY-W3EB",
-              {
-                method: "POST",
-                data: JSON.stringify(params)
-              });
+          var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val());
           return xhr.then(function(json) {
-            if (json.Result == "Success") {
+            if (json.Result == "Valid") {
               isPhone = true
               return true
             }else{
@@ -211,33 +198,31 @@ validate();
   function validateEmail(){
     window.Parsley.addValidator('validemail', {
       validateString: function(value){
-        var options = {};
-        var params = {
-          email: $(".email").val(),
-          level: "MX",
-          options: options
-        };
-
-       var xhr = $.ajax("https://webservices.data-8.co.uk/EmailValidation/IsValid.json?key=X479-GTNM-TWEY-W3EB",
-            {
-              method: "POST",
-              data: JSON.stringify(params)
-            });
+        var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/email?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.email').val());
         return xhr.then(function(json) {
           if (json.Result == "Valid") {
             isEmail = true
             return true
-          }else{
+          }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid Email Address");
+          }else{
+            isEmail = true
+            return true
           }
-        })
+        }).catch(function(e) {
+          if (e == "Please Enter Valid Email Address") {
+            return $.Deferred().reject("Please Enter Valid Email Address")
+          }else{
+            isEmail = true
+            return true
+          }
+        });
       },
       messages: {
          en: 'Please Enter Valid Email Address',
       }
     });
   }
-
 
   function fixStepIndicator(num) {
     var progress = document.getElementById('progressBar');

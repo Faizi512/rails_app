@@ -15,7 +15,7 @@
 
          <div class="row">
              <div class="col-md-7 col-12 bg-white form-div position-relative">
-                 <form class="quiz_form" method="POST" action="http://investmentconnector.com/action.php" id="dealform"
+                 <form class="quiz_form" onsubmit="event.preventDefault();" id="dealform"
                      data-parsley-validate="" novalidate="">
                      <!-- tab 1 -->
                      <div class="tab text-center" style="display: block;">
@@ -182,7 +182,7 @@
                                      class="email px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control"
                                      data-parsley-required="true"
                                      data-parsley-required-message="Please Enter Valid Email Address"
-                                     data-parsley-group="block-4" data-parsley-type="email" data-parsley-validemail=""
+                                     data-parsley-group="block-4" data-parsley-type="email" data-parsley-validemail
                                      type="email" required="">
                                  <i class="validate success fa fa-check-circle"></i>
                                  <i class="validate error fa fa-times-circle"></i>
@@ -191,13 +191,15 @@
                                  class="col-md-6 mt-4 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0">
                                  <label class="text-start  w-100 mb-1 form-label"><strong>Phone No</strong></label>
                                  <input placeholder="Phone No" id="phone" name="phone"
-                                     class="email px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control"
+                                     class="phone px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control"
                                      data-parsley-required="true"
-                                     data-parsley-required-message="Please Enter Valid Email Address"
-                                     data-parsley-group="block-4" data-parsley-type="tel" data-parsley-validemail=""
-                                     type="email" required="">
+                                     data-parsley-required-message="Please Enter Valid Phone Number"
+                                     data-parsley-group="block-4" data-parsley-type="number" data-parsley-validphone
+                                     type="tel" required="">
                                  <i class="validate success fa fa-check-circle"></i>
                                  <i class="validate error fa fa-times-circle"></i>
+                                <div class="phoneerror"></div>
+
                              </div>
                              <div
                                  class="col-md-6 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0">
@@ -422,7 +424,6 @@
 
                                          <i class="validate success fa fa-check-circle"></i>
                                          <i class="validate error fa fa-times-circle"></i>
-                                         <div class="phoneerror"></div>
                                  </div>
                              </div>
                              <div class="row align-items-center justify-content-center">
@@ -449,7 +450,7 @@
                              </div>
                              <input type="hidden" name="lid" id="clickid" value="">
                              <input type="hidden" name="aid" id="aid" value="">
-                             <input value="Compare Now!" type="submit" class="Compare_now">
+                             <input id="btn-submit" value="Compare Now!" type="submit" class="Compare_now">
 
                          </div>
                      </div>
