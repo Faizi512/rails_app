@@ -15,8 +15,8 @@
 
          <div class="row">
              <div class="col-md-7 col-12 bg-white form-div position-relative">
-                 <form class="quiz_form" onsubmit="event.preventDefault();" id="dealform"
-                     data-parsley-validate="" novalidate="">
+                 <form class="quiz_form" onsubmit="event.preventDefault();" id="dealform" data-parsley-validate=""
+                     novalidate="">
                      <!-- tab 1 -->
                      <div class="tab text-center" style="display: block;">
                          <div class="mt-4 text-center form-group">
@@ -125,8 +125,7 @@
                              </div>
                              <div class="mt-3"></div>
                              <button id="btn-next" type="button"
-                                 class="btn-lg btn-next text-white rounded-lg font-weight-bold w-100 mt-3 hv-50 nextStep"
-                                >
+                                 class="btn-lg btn-next text-white rounded-lg font-weight-bold w-100 mt-3 hv-50 nextStep">
                                  Next
                              </button>
                          </div>
@@ -165,8 +164,7 @@
                                  <i class="validate error fa fa-times-circle"></i>
                              </div>
                              <button id="btn-next2" type="button"
-                                 class="btn-lg btn-next text-white rounded-lg font-weight-bold w-100 mt-4 hv-50 nextStep"
-                                 >
+                                 class="btn-lg btn-next text-white rounded-lg font-weight-bold w-100 mt-4 hv-50 nextStep">
                                  Next
                              </button>
                          </div>
@@ -198,7 +196,7 @@
                                      type="tel" required="">
                                  <i class="validate success fa fa-check-circle"></i>
                                  <i class="validate error fa fa-times-circle"></i>
-                                <div class="phoneerror"></div>
+                                 <div class="phoneerror"></div>
 
                              </div>
                              <div
@@ -206,20 +204,30 @@
                                  <label class="text-start  w-100 mb-1 form-label"><strong>Postal Code</strong></label>
                                  <div class="input-group mb-3">
 
-                                     <input type="text"
+                                     <%
+=begin%>
+ <input type="text"
                                          class="last_name px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control"
-                                         id="postalcode" placeholder="Postal Code">
+                                         id="postalcode" placeholder="Postal Code"> 
+<%
+=end%>
+                                         <input name="postcode" required data-parsley-required="true"
+                                             data-parsley-required-message="Please Enter Postcode"
+                                             data-parsley-group="block-4" data-parsley-validapipostcode type="text"
+                                             class="postcode form-control" placeholder="Postcode" style="height:50px">
                                      <div class="input-group-append">
                                          <span class="input-group-text"><button type="submit"
                                                  class="btn btn-primary">Find Address</button></span>
                                      </div>
+                                     <div class="postcode-error"></div>
                                  </div>
+                                 
                                  <i class="validate success fa fa-check-circle"></i>
                                  <i class="validate error fa fa-times-circle"></i>
                              </div>
                              <div class="col-md-6 pr-md-0 pl-md-2 px-0 text-center form-group position-relative">
 
-                                 <div class="form-group col-lg-12 property-div display-none" style="display: block;">
+                                 <div class="form-group col-lg-12 property-div disp-none">
                                      <label class="text-start  w-100 mb-1 form-label"><strong>Your
                                              Property</strong></label>
                                      <input type="hidden" name="towncity" class="towncity" value="Bradford">
@@ -485,8 +493,8 @@
                          </li>
 
                          <li>
-                             <span> 
-                                <%=image_tag "check.png", class: "img-fluid", width:"26", height: "26"%>
+                             <span>
+                                 <%=image_tag "check.png", class: "img-fluid", width:"26", height: "26"%>
                              </span>
                              <span>Join the Millions of Investors Profiting<br>
                                  from the Top Investment Plans.</span>
@@ -504,7 +512,7 @@
          <div class="col-md-4 col-12">
              <div class="feature mt-2 mb-2">
                  <span>
-                    <%=image_tag "f1.png",  width:"36", height: "36"%>  
+                     <%=image_tag "f1.png",  width:"36", height: "36"%>
                  </span>
                  <a>Quick and <br>
                      Easy Comparisons</a>
@@ -514,7 +522,7 @@
          <div class="col-md-4 col-12">
              <div class="feature mt-2 mb-2">
                  <span>
-                    <%=image_tag "f2.png",  width:"36", height: "36"%>
+                     <%=image_tag "f2.png",  width:"36", height: "36"%>
                  </span>
                  <a class="mt-3">£ High ROI</a>
              </div>
@@ -523,7 +531,7 @@
          <div class="col-md-4 col-12">
              <div class="feature mt-2 mb-2">
                  <span>
-                    <%=image_tag "f3.png",  width:"36", height: "36"%>
+                     <%=image_tag "f3.png",  width:"36", height: "36"%>
                  </span>
                  <a class="mt-3">No Hidden Fees</a>
              </div>
@@ -544,7 +552,7 @@
                      <h2 class="pt-3">Simple Solutions</h2>
                      <div class="clearfix"></div>
                      <div class="cercle">
-                        <%=image_tag "feat1.png",  width:"50", height: "36", class: "img-fluid"%>
+                         <%=image_tag "feat1.png",  width:"50", height: "36", class: "img-fluid"%>
                      </div>
                  </div>
                  <div class="comp_box_bg01">
@@ -560,7 +568,7 @@
                      <h2 class="pt-3">Helping Investors</h2>
                      <div class="clearfix"></div>
                      <div class="cercle">
-                        <%=image_tag "feat2.png",  width:"50", height: "36", class: "img-fluid"%>
+                         <%=image_tag "feat2.png",  width:"50", height: "36", class: "img-fluid"%>
                      </div>
 
                  </div>
@@ -577,7 +585,7 @@
                      <h2 class="pt-3">Quick Comparison</h2>
                      <div class="clearfix"></div>
                      <div class="cercle">
-                        <%=image_tag "feat3.png",  width:"50", height: "36", class: "img-fluid"%>
+                         <%=image_tag "feat3.png",  width:"50", height: "36", class: "img-fluid"%>
                      </div>
 
                  </div>
@@ -594,13 +602,13 @@
                      <h2 class="pt-3">Highly Rated</h2>
                      <div class="clearfix"></div>
                      <div class="cercle">
-                        <%=image_tag "feat4.png",  width:"50", height: "36", class: "img-fluid"%>
+                         <%=image_tag "feat4.png",  width:"50", height: "36", class: "img-fluid"%>
                      </div>
 
                  </div>
                  <div class="comp_box_bg01">
                      <h3>
-                        <%=image_tag "star.png",  width:"131", height: "24", class: "img-fluid"%>
+                         <%=image_tag "star.png",  width:"131", height: "24", class: "img-fluid"%>
                      </h3>
                      <p>By Our Customers</p>
                  </div>

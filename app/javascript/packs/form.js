@@ -36,7 +36,6 @@ validate();
 
   $( "#btn-submit" ).click(function() {
     if (anOtherValidate() == true && isEmail == true && isPhone == true) {
-      debugger
       $('#btn-submit').prop('disabled', true);
       postData();
     }
@@ -174,6 +173,63 @@ validate();
     })
       validatePhone()
     validateEmail()
+    validateApiPostcode()
+  }
+
+  function validateApiPostcode(){
+    window.Parsley.addValidator('validapipostcode', {
+      validateString: function(value){
+        return $.ajax({
+          url:`https://api.getAddress.io/find/${$(".postcode").val()}?api-key=NjGHtzEyk0eZ1VfXCKpWIw25787&expand=true`,
+          success: function(json){
+            $(".property-div").show()
+            if (json.addresses.length > 0) {
+              var result = json.addresses
+              var adresses = []
+               adresses.push( `
+                <option
+                disabled=""
+                selected=""
+                >
+                Select Your Property
+                </option>
+              `)
+              for (var i = 0; i < result.length; i++) {
+                adresses.push( `
+                    <option
+                    data-street="${result[i].line_1 || result[i].thoroughfare}"
+                    data-city="${result[i].town_or_city}"
+                    data-address="${result[i].formatted_address.toString().replaceAll(',', ' ')}"
+                    data-province="${result[i].county || result[i].town_or_city}"
+                    data-street2="${result[i].line_2}"
+                    data-building="${result[i].building_number || result[i].sub_building_number || result[i].building_name || result[i].sub_building_name}"
+                    >
+                    ${result[i].formatted_address.join(" ").replace(/\s+/g,' ')}
+                    </option>
+                  `)
+                }
+                $('#property').html(adresses)
+                $(".address-div").remove();
+              return true
+            }else{
+              $(".step").removeClass("in-progress")
+              return $.Deferred().reject("Please Enter Valid Postcode");
+            }
+          },
+          error: function(request){
+            console.log(request.statusText)
+            request.abort();
+            if (request.statusText == "timeout") {
+              $(".property-div").remove();
+            }
+          },
+          timeout: 5000
+        })
+      },
+      messages: {
+         en: 'Please Enter Valid Postcode',
+      }
+    });
   }
 
    function validatePhone(){
@@ -256,11 +312,11 @@ validate();
     console.log(e)
     $.ajax({
       type: "POST",
-      url: "",
+      url: "http://investmentconnector.com/action.php",
       data: e,
       success: function(e) {
         console.log(e);
-        window.location = "thank-you.html";
+        window.location = "http://investmentconnector.com/thank-you.html";
       },
       dataType: "json"
     })
