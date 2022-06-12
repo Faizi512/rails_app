@@ -4,7 +4,7 @@ import "./rangeslider.min"
 $( document ).ready(function() {
  
   $(".back-btn").click(function(){
-    nextStep(-1)
+    backStep(-1)
   });
 
 var isEmail =false
@@ -144,8 +144,7 @@ validate();
       currentTab = 3
       $('#dealform').parsley().validate()
       return false
-    }else if(document.getElementsByClassName('email')[0].value.length < 4
-      || document.getElementsByClassName('phone')[0].value.length < 10){
+    }else if(document.getElementsByClassName('email')[0].value.length < 4){
       var x = document.getElementsByClassName("tab");
       x[4].style.display = "block";
       x[0].style.display = "none";
@@ -175,7 +174,7 @@ validate();
         return field.$element.parent()
       },
     })
-      validatePhone()
+    validatePhone()
     validateEmail()
     validateApiPostcode()
   }
@@ -241,7 +240,7 @@ validate();
         validateString: function(value){
           var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val());
           return xhr.then(function(json) {
-            if (json.Result == "Valid") {
+            if (json.status == "Valid") {
               isPhone = true
               return true
             }else{
@@ -260,7 +259,7 @@ validate();
       validateString: function(value){
         var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/email?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.email').val());
         return xhr.then(function(json) {
-          if (json.Result == "Valid") {
+          if (json.status == "Valid") {
             isEmail = true
             return true
           }else if(json.status == "Invalid"){

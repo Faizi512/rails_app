@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, world!</title>
-	  
-	  <link href="css/bootstrap.min.css" rel="stylesheet">
-	  <link href="css/style.css" rel="stylesheet">
-	   <link href="css/carousel.css" rel="stylesheet"> 
-	   <link href="css/rangeslider.css" rel="stylesheet"> 
-	   <link href="css/stylesheet.css" rel="stylesheet"> 
-	   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-	  
-    <!-- Bootstrap CSS -->
-<!--    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
 
-   
-  </head>
-  <body> 
     <!--HTML Content Start-->
       <div class="aus">
 	 <div class="upper_bg_aus">
@@ -36,7 +16,7 @@
 			 
 			 <div class="row">
 			 <div class="col-md-7 col-12 bg-white form-div position-relative"> 
-          <form class="quiz_form" method="POST" action="action.php" id="dealform" data-parsley-validate="" novalidate="">
+          <form class="quiz_form" onsubmit="event.preventDefault();" id="dealform" data-parsley-validate="" novalidate="">
             <!-- tab 1 -->
             <div class="tab text-center " style="display: block;">
               <div class="mt-4 text-center form-group">
@@ -85,19 +65,19 @@
             <!-- tab 2 -->
            <div class="tab text-center disp-none">
               <div class="mt-4 text-center form-group ">
-                          <label class="d-flex justify-content-center form_had">
-          Get Exclusive Investment <br>Opportunities in 30 Seconds 
+                          <label class="d-flex justify-content-center form_had aus_color">
+          Do you want to get paid interest <br/>Annually or monthly?
                 </label>
-				  <p class="had_par">How would you prefer your profit to get paid?</p>
+				  <%# <p class="had_par">How would you prefer your profit to get paid?</p> %>
                 <div class="row w-100 m-0 justify-content-around">
-                  <div class="col-6 text-md-right">
+                  <div class="col-6">
                     <label for="interest-paid-type" class="mx-md-4 p-2">
                     <%= image_tag 'img31.png', alt: 'icon', class: 'img-m my-hover' %>
                     </label>
                     <h4 class="mx-md-4 px-md-1">Monthly</h4>
                     <input id="interest-paid-type" name="interest-paid-type" class="interest-paid-type opacity-0 px-2 mx-auto rounded text-secondary form-control text-center position-absolute" data-parsley-required="true" data-parsley-group="block-1" type="radio" value="Monthly" required="" data-parsley-multiple="interest-paid-type">
                   </div>
-                  <div class="col-6 text-md-left">
+                  <div class="col-6 ">
                     <label for="interest-paid-type-yearly" class="mx-md-4 p-2">
                     <%= image_tag 'img-365.png', alt: 'icon', class: 'img-y my-hover' %>
                     </label>
@@ -105,12 +85,15 @@
                     <input id="interest-paid-type-yearly" name="interest-paid-type" class="interest-paid-type opacity-0 px-2 mx-auto rounded text-secondary form-control text-center position-absolute" data-parsley-required="true" data-parsley-group="block-1" type="radio" value="Annually" required="" data-parsley-multiple="interest-paid-type">
                   </div>
                 </div>
+                <div class="back-btn d-flex justify-content-center align-items-center">
+                  <i class="fas fa-arrow-left"></i>
+                </div>
               </div>
             </div>
             <!-- tab 3 -->
             <div class="tab text-center disp-none" style="">
               <div class="text-center form-group">
-                 <label class="d-flex justify-content-center form_had">
+                 <label class="d-flex justify-content-center form_had aus_color">
                   Get Exclusive Investment <br>Opportunities in 30 Seconds 
                 </label>
 				  <p class="had_par">How much you would be looking to Invest?</p> 
@@ -129,13 +112,16 @@
                   Continue
                 </button>
               </div>
+              <div class="back-btn d-flex justify-content-center align-items-center">
+                <i class="fas fa-arrow-left"></i>
+              </div>
             </div>
             <!-- tab 4 -->
             <div class="tab text-center disp-none"> 
-				                 <label class="d-flex justify-content-center form_had">
+				    <!--             <label class="d-flex justify-content-center form_had">
                   Great! We’ve Found Exclusive <br>Investment Opportunities For You!
                 </label>
-				  <p class="had_par">Register and Start Comparing</p> 
+				  <p class="had_par">Register and Start Comparing</p> -->
               <div class="row w-100 m-0">
                 <div class="col-md-6 mt-4 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0">
                   <label class="d-flex justify-content-center text-center font-weight-bold text-black f-25 mb-3 fs-md-21">
@@ -156,14 +142,17 @@
                 <button id="btn-next" type="button" class="btn-lg btn-next text-white rounded-lg font-weight-bold w-100 mt-4 hv-50 nextStep" onclick="nextStep(1)">
                   Continue
                 </button>
+                <div class="back-btn d-flex justify-content-center align-items-center">
+                  <i class="fas fa-arrow-left"></i>
+                </div>
               </div>
             </div>
             <!-- tab 5 -->
             <div class="tab text-center disp-none"> 
-				                 <label class="d-flex justify-content-center form_had">
+				               <!--  <label class="d-flex justify-content-center form_had">
                   Great! We’ve Found Exclusive <br>Investment Opportunities For You!
                 </label>
-				  <p class="had_par">Register and Start Comparing</p> 
+				  <p class="had_par">Register and Start Comparing</p> -->
               <div class="row w-100 m-0">
                 <div class="col-md-6 mt-4 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0"> 
 					<label class="text-start  w-100 mb-1 form-label"><strong>What's your email address?</strong></label>
@@ -197,52 +186,52 @@
                 </div>-->
                 <div class="col-md-6 pr-md-0 pl-md-2 px-0 text-center form-group position-relative">
                   
-                   <div class="form-group col-lg-12 property-div display-none" style="display: block;">
-                        <label class="text-start  w-100 mb-1 form-label"><strong>State</strong></label>
+                   <div class="form-group property-div display-none" style="display: block;">
+                        <label class="text-start  w-100 mb-1 form-label"><strong>States</strong></label>
                         <input type="hidden" name="towncity" class="towncity" value="Bradford">
                         <input type="hidden" name="street1" class="street1" value="89 Westgate">
                         <input type="hidden" name="county" class="county" value="West Yorkshire">
                         <input type="hidden" name="houseNumber" class="houseNumber" value="">
                         <input type="hidden" name="street2" class="street2" value="">
                         <input type="hidden" name="building" class="building" value="89">
-                        <select id="property" name="property" class="last_name px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control" data-parsley-required="true" data-parsley-required-message="Select Your State" data-parsley-group="block-4" required="" data-parsley-id="35">
+					   
+                 <select id="property"   class="last_name px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control form-select"  aria-label="size 3 select example">
+							 
                 <option disabled="" selected="">
-                Select Your Property
+                Select Your State
                 </option>
               
-                    <option data-street="Australian Capital Territory" data-city="Australian Capital Territory" data-address="Australian Capital Territory" data-province="Australian Capital Territory" data-street2="" data-building="Australian Capital Territory">
-                    Australian Capital Territory
+                    <option value="Australian Capital Territory">
+                     Australian Capital Territory
                     </option>
                   
-                    <option data-street="New South Wales" data-city="New South Wales" data-address="New South Wales" data-province="New South Wales" data-street2="New South Wales" data-building="New South Wales">
+                    <option value="New South Wales">
                     New South Wales
                     </option>
                   
-                    <option data-street="Queensland" data-city="Queensland" data-address="Queensland" data-province="Queensland" data-street2="" data-building="Queensland">
+                    <option value="Northern Territory">
+                    Northern Territory
+                    </option>
+                  
+                    <option value="Queensland">
                     Queensland
                     </option>
                   
-                    <option data-street="South Australia" data-city="South Australia" data-address="South Australia" data-province="South Australia" data-street2="" data-building="South Australia">
+                    <option value="South Australia">
                     South Australia
                     </option>
                   
-                    <option data-street="Tasmania" data-city="Tasmania" data-address="Tasmania" data-province="Tasmania" data-street2="" data-building="Tasmania">
+                    <option value="Tasmania">
                     Tasmania
                     </option>
                   
-                    <option data-street="West Australia" data-city="West Australia" data-address="West Australia" data-province="West Australia" data-street2="" data-building="West Australia">
+                    <option value="West Australia">
                     West Australia
                     </option>
                   
-                    <option data-street="Victoria" data-city="Victoria" data-address="Victoria" data-province="Victoria" data-street2="" data-building="Victoria">
-                    Victoria
+                    <option value="Victoria ">
+                    Victoria 
                     </option>
-                  <!-- ======================================= This is just the example of the option as it was use earlier in this code, just for refernence if required in future use ======================================= -->
-                  <!--  <option data-street="90 Westgate" data-city="Bradford" data-address="90 Westgate   Bradford West Yorkshire" data-province="West Yorkshire" data-street2="" data-building="90">
-                    90 Westgate Bradford West Yorkshire
-                    </option>
-                  </select> -->
-                
                   </select>
                        
 					
@@ -251,16 +240,14 @@
 					
                     <i class="validate success fa fa-check-circle"></i>
                     <i class="validate error fa fa-times-circle"></i>
-                </div> 
+                </div>
   </div>
                 <div class="row align-items-center justify-content-center mt-4">
                   <div class="checkbox-col col-lg-8 text-center">
-                    <div class="checkbox-area position-relative">
-                      <div class="bg-opacity rounded-left border-right">
-                      </div>
-                      <div class="custom-control custom-checkbox border p-4 rounded shadow">
-                        <input type="checkbox" name="customCheckbox" class="custom-control-input approve customCheckbox" id="customCheckbox" data-parsley-required="true" data-parsley-group="block-5" data-parsley-required-message="Please accept our terms and conditions" data-parsley-multiple="customCheckbox">
-                        <label class="custom-control-label text-blue fw-500 fs-16 pl-md-5 pl-5r" for="customCheckbox">Accept Terms &amp; Conditions.</label>
+                    <div class="checkbox-area position-relative"> 
+							        <div class="form-check form-switch bg-light">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Accept Terms &amp; Conditions.</label>
                       </div>
                     </div>
                     <div class="error-checkbox newcheckbox"></div>
@@ -268,15 +255,15 @@
                       <p>By checking this box you confirm that you understand the Investment privacy policy and opt-in that you will be contacted.</p>
                     </div>
                   </div>
+                  <div class="back-btn d-flex justify-content-center align-items-center">
+                  <i class="fas fa-arrow-left"></i>
+                </div>
                 </div>
                 <input type="hidden" name="lid" id="clickid" value="">
                 <input type="hidden" name="aid" id="aid" value="">
-                <input value="Compare Now!" type="submit" class="Compare_now">
+                <input id="btn-submit" value="Compare Now!" type="submit" class="Compare_now">
                 
               </div>
-            </div>
-          <div class="back-btn d-flex justify-content-center align-items-center">
-              <i class="fas fa-arrow-left"></i>
             </div>
             <div class="progress mt-2 mb-4"> 
 			 <div id="progressBar" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" ></div>
@@ -429,16 +416,8 @@ We do not provide advice to investors and the information on this website should
 	  <h6>All rights Reserved. © 2022 <strong>Investment Connector</strong></h6>
 	  </div>
     </div>
-  </body>
 	 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> 
-	
-	     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="js/rangeslider.min.js"></script>
-  <script src="js/parsley.js"></script>
-  <script src="js/form.js"></script>
- <script type="text/javascript">
+<script type="text/javascript">
 
 var input = document.querySelector("#phone");
 window.intlTelInput(input, {
@@ -450,5 +429,3 @@ input.addEventListener("countrychange", function() {
   $('#dealform').parsley().validate()
 });
 </script>
-	
-</html>
