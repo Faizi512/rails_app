@@ -321,12 +321,13 @@ validate();
       data: formData,
       success: function(data) {
         console.log(data)
-        if(data.code == 1 && data.records[0].status != "Rejected"){
-          window.location = "http://investmentconnector.com/thank-you.html";
-        }else{
-          console.log(data.records[0].status)
-          // window.location= 'https://dl.reliatrk.com/?a=2&c=36&s1=exit'
-        }
+        window.location = "http://investmentconnector.com/thank-you.html";
+        // if(data.code == 1 && data.records[0].status != "Rejected"){
+        //   window.location = "http://investmentconnector.com/thank-you.html";
+        // }else{
+        //   console.log(data.records[0].status)
+        //   // window.location= 'https://dl.reliatrk.com/?a=2&c=36&s1=exit'
+        // }
       },
       error: function(request){
         console.log("error")
