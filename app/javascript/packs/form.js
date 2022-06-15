@@ -311,12 +311,13 @@ validate();
     };
   }
   function postData() {
-    debugger
     var formData = getData();
+    var data = $("#dealform").dataset.details
+    var details = JSON.parse(data)
     formData['before_send'] = JSON.stringify(getData());
     $.ajax({
       type: "POST",
-      url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + campid,
+      url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + details.campid,
       data: formData,
       success: function(data) {
         console.log(data)
