@@ -40,7 +40,7 @@ validate();
 
   $( "#btn-submit" ).click(function() {
     debugger
-    if (anOtherValidate() == true && isEmail == true && isPhone == true) {
+    if (anOtherValidate() == true && isEmail == true ) {
       $('#btn-submit').prop('disabled', true);
       postData();
     }
@@ -312,7 +312,7 @@ validate();
   }
   function postData() {
     var formData = getData();
-    var data = $("#dealform").dataset.details
+    var data = document.getElementById("dealform").dataset.details
     var details = JSON.parse(data)
     formData['before_send'] = JSON.stringify(getData());
     $.ajax({
@@ -329,7 +329,8 @@ validate();
         }
       },
       error: function(request){
-        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
+        console.log("error")
+        // CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
         console.log(request.statusText)
       },
       dataType: "json"
