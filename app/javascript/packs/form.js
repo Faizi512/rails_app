@@ -39,6 +39,7 @@ validate();
   });
 
   $( "#btn-submit" ).click(function() {
+    debugger
     if (anOtherValidate() == true && isEmail == true && isPhone == true) {
       $('#btn-submit').prop('disabled', true);
       postData();
@@ -310,9 +311,9 @@ validate();
     };
   }
   function postData() {
+    debugger
     var formData = getData();
     formData['before_send'] = JSON.stringify(getData());
-    console.log(e)
     $.ajax({
       type: "POST",
       url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + campid,
