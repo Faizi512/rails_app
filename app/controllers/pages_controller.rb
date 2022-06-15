@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
+    include PagesHelper
     def index
+        handsets
     end
     def aus
+        handsets
     end
     def terms_condition
     end

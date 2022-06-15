@@ -310,19 +310,38 @@ validate();
     };
   }
   function postData() {
-    var e = getData();
-    e['before_send'] = JSON.stringify(getData());
+    var formData = getData();
+    formData['before_send'] = JSON.stringify(getData());
     console.log(e)
     $.ajax({
       type: "POST",
-      url: "http://investmentconnector.com/action.php",
-      data: e,
-      success: function(e) {
-        console.log(e);
-        window.location = "http://investmentconnector.com/thank-you.html";
+      url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + campid,
+      data: formData,
+      success: function(data) {
+        console.log(data)
+        if(data.code == 1 && data.records[0].status != "Rejected"){
+          window.location = "http://investmentconnector.com/thank-you.html";
+        }else{
+          console.log(data.records[0].status)
+          // window.location= 'https://dl.reliatrk.com/?a=2&c=36&s1=exit'
+        }
+      },
+      error: function(request){
+        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
+        console.log(request.statusText)
       },
       dataType: "json"
     })
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://investmentconnector.com/action.php",
+    //   data: e,
+    //   success: function(e) {
+    //     console.log(e);
+    //     window.location = "http://investmentconnector.com/thank-you.html";
+    //   },
+    //   dataType: "json"
+    // })
   }
 
   function getUrlParameter(sParam) {
