@@ -238,7 +238,7 @@ validate();
    function validatePhone(){
       window.Parsley.addValidator('validphone', {
         validateString: function(value){
-          var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val());
+          var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=7b32461b4afd7912a0669d5cf2369d50&value='+$('.phone').val());
           return xhr.then(function(json) {
             if (json.status == "Valid") {
               isPhone = true
