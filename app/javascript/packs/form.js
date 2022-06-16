@@ -317,11 +317,11 @@ validate();
     formData['before_send'] = JSON.stringify(getData());
     $.ajax({
       type: "POST",
-      url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + details.campid,
+      url: "https://dukeleads.leadbyte.co.uk/api/submit.php?campid=INVESTMENT&returnjson=yes",
       data: formData,
       success: function(data) {
         console.log(data)
-        window.location = "http://investmentconnector.com/thank-you.html";
+        window.location = "/thank-you.html";
         // if(data.code == 1 && data.records[0].status != "Rejected"){
         //   window.location = "http://investmentconnector.com/thank-you.html";
         // }else{

@@ -14,4 +14,7 @@ class PagesController < ApplicationController
     end
     def privacy_policy
     end
+
+    def thank_you
+    end
 end

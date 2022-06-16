@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/terms-and-condition", to:"pages#terms_condition"
   get "/cookie-policy", to:"pages#cookie_policy"
   get "/privacy-policy", to:"pages#privacy_policy"
+  get "/thank-you", to: "pages#thank_you"
 end
