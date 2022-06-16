@@ -175,7 +175,7 @@ validate();
         return field.$element.parent()
       },
     })
-    validatePhone()
+    // validatePhone()
     validateEmail()
     validateApiPostcode()
   }
@@ -245,6 +245,8 @@ validate();
               isPhone = true
               return true
             }else{
+              isPhone=true
+              return true
               return $.Deferred().reject("Please Enter Valid Phone Number");
             }
           })
