@@ -46,10 +46,61 @@
     gtag('config', 'UA-232136081-1');
   </script>
 
+  <script>
+    if (typeof dataLayer != 'undefined') {
+    dataLayer.push({
+    'eventLabel': 'reject',
+    'eventAction': 'submit',
+    'eventCategory': 'form',
+    'eventValue': '0',
+    'event': 'form-submit'
+    });
+    }
+  </script>
+  <script>
+    if (typeof dataLayer != 'undefined') {
+    dataLayer.push({
+    'eventLabel': 'sold',
+    'eventAction': 'submit',
+    'eventCategory': 'form',
+    'eventValue': '{price}',
+    'event': 'form-submit'
+    });
+    }
+  </script>
+
+  <script>
+    if (typeof dataLayer != 'undefined') {
+      dataLayer.push({
+          'eventLabel': 'sold',
+          'eventAction': 'submit',
+          'eventCategory': 'form',
+          'event': 'sold-ecommerce',
+          'ecommerce': {
+            'purchase': {
+              'actionField': {
+              'id': '1',
+              'affiliation': 'none',
+              'revenue': '{price}'
+              },
+              'products': [{
+              'name': '1',
+              'id': '1',
+              'price': '{price}',
+              'brand': 'none',
+              'category': 'none',
+              'quantity': 1,
+              }]
+            }
+          }
+      });
+    }
+  </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSDC7RF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
