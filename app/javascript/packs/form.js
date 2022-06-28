@@ -39,7 +39,8 @@ validate();
   });
 
   $( "#btn-submit" ).click(function() {
-    if (anOtherValidate() == true && isEmail == true && isPhone == true) {
+    debugger
+    if (anOtherValidate() == true && isEmail == true ) {
       $('#btn-submit').prop('disabled', true);
       postData();
     }
@@ -174,7 +175,7 @@ validate();
         return field.$element.parent()
       },
     })
-    validatePhone()
+    // validatePhone()
     validateEmail()
     validateApiPostcode()
   }
@@ -238,12 +239,14 @@ validate();
    function validatePhone(){
       window.Parsley.addValidator('validphone', {
         validateString: function(value){
-          var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val());
+          var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=7b32461b4afd7912a0669d5cf2369d50&value='+$('.phone').val());
           return xhr.then(function(json) {
             if (json.status == "Valid") {
               isPhone = true
               return true
             }else{
+              isPhone=true
+              return true
               return $.Deferred().reject("Please Enter Valid Phone Number");
             }
           })
@@ -310,19 +313,41 @@ validate();
     };
   }
   function postData() {
-    var e = getData();
-    e['before_send'] = JSON.stringify(getData());
-    console.log(e)
+    var formData = getData();
+    var data = document.getElementById("dealform").dataset.details
+    var details = JSON.parse(data)
+    formData['before_send'] = JSON.stringify(getData());
     $.ajax({
       type: "POST",
-      url: "http://investmentconnector.com/action.php",
-      data: e,
-      success: function(e) {
-        console.log(e);
-        window.location = "http://investmentconnector.com/thank-you.html";
+      url: "https://dukeleads.leadbyte.co.uk/api/submit.php?campid=INVESTMENT&returnjson=yes",
+      data: formData,
+      success: function(data) {
+        console.log(data)
+        window.location = "/thank-you.html";
+        // if(data.code == 1 && data.records[0].status != "Rejected"){
+        //   window.location = "http://investmentconnector.com/thank-you.html";
+        // }else{
+        //   console.log(data.records[0].status)
+        //   // window.location= 'https://dl.reliatrk.com/?a=2&c=36&s1=exit'
+        // }
+      },
+      error: function(request){
+        console.log("error")
+        // CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
+        console.log(request.statusText)
       },
       dataType: "json"
     })
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://investmentconnector.com/action.php",
+    //   data: e,
+    //   success: function(e) {
+    //     console.log(e);
+    //     window.location = "http://investmentconnector.com/thank-you.html";
+    //   },
+    //   dataType: "json"
+    // })
   }
 
   function getUrlParameter(sParam) {

@@ -16,7 +16,9 @@
 			 
 			 <div class="row">
 			 <div class="col-md-7 col-12 bg-white form-div position-relative"> 
-          <form class="quiz_form" method="POST" action="http://investmentconnector.com/action.php" id="dealform" data-parsley-validate="" novalidate="">
+          <form class="quiz_form"  id="dealform" data-details="<%= @details %>" method="post" action="/thank-you" data-parsley-validate="" novalidate="">
+          <input name="authenticity_token" type="hidden" value=" <%= form_authenticity_token %>" />
+
             <!-- tab 1 -->
             <div class="tab text-center " style="display: block;">
               <div class="mt-4 text-center form-group">
@@ -150,7 +152,7 @@
             <!-- tab 5 -->
             <div class="tab text-center disp-none"> 
 				               <!--  <label class="d-flex justify-content-center form_had">
-                  Great! We’ve Found Exclusive <br>Investment Opportunities For You!
+                  Great! We've Found Exclusive <br>Investment Opportunities For You!
                 </label>
 				  <p class="had_par">Register and Start Comparing</p> -->
               <div class="row w-100 m-0">
@@ -261,7 +263,7 @@
                 </div>
                 <input type="hidden" name="lid" id="clickid" value="">
                 <input type="hidden" name="aid" id="aid" value="">
-                <input value="Compare Now!" type="submit" class="Compare_now">
+                <input  value="Compare Now!" type="submit" class="Compare_now">
                 
               </div>
             </div>
@@ -423,7 +425,7 @@ Easy Comparisons</a>
       </div>
  </div>
  <div class="container-fluid ftr_bg mt-5">
-     <h6>All rights Reserved. © 2022 <strong>Go4.finance</strong></h6>
+     <h6>All rights Reserved. © 2022 <strong>top10investment.com</strong></h6>
  </div>
 	 
 <script type="text/javascript">
