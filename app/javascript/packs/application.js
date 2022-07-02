@@ -21,3 +21,9 @@ require("./form")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+// import intlTelInput from 'intl-tel-input';
+
+// const input = document.querySelector("#phone");
+// intlTelInput(input, {
+//     // any initialisation options go here
+// });

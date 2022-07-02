@@ -17,7 +17,8 @@
 			 <div class="row">
 			 <div class="col-md-7 col-12 bg-white form-div position-relative"> 
           <form class="quiz_form"  id="dealform" data-details="<%= @details %>" method="post" action="/thank-you" data-parsley-validate="" novalidate="">
-          <input name="authenticity_token" type="hidden" value=" <%= form_authenticity_token %>" />
+            <input name="authenticity_token" type="hidden" value=" <%= form_authenticity_token %>" />
+            <input name="page_name" type="hidden" value="aus" />
 
             <!-- tab 1 -->
             <div class="tab text-center " style="display: block;">
@@ -186,16 +187,10 @@
                     <i class="validate success fa fa-check-circle"></i>
                     <i class="validate error fa fa-times-circle"></i>
                 </div>-->
-                <!--<div class="col-md-6 pr-md-0 pl-md-2 px-0 text-center form-group position-relative">
+                <div class="col-md-6 pr-md-0 pl-md-2 px-0 text-center form-group position-relative">
                   <div class="form-group property-div display-none" style="display: block;">
-                    <label class="text-start  w-100 mb-1 form-label"><strong>States</strong></label>
-                    <input type="hidden" name="towncity" class="towncity" value="Bradford">
-                    <input type="hidden" name="street1" class="street1" value="89 Westgate">
-                    <input type="hidden" name="county" class="county" value="West Yorkshire">
-                    <input type="hidden" name="houseNumber" class="houseNumber" value="">
-                    <input type="hidden" name="street2" class="street2" value="">
-                    <input type="hidden" name="building" class="building" value="89">
-                    <select id="property"   class="last_name px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control form-select"  aria-label="size 3 select example">
+                    <label class="text-start  w-100 mb-1 form-label" ><strong>States</strong></label>
+                    <select id="property" onchange= "setStateName()" class="last_name px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control form-select"  aria-label="size 3 select example">
                       <option disabled="" selected="">Select Your State</option>              
                       <option value="Australian Capital Territory">Australian Capital Territory</option>                  
                       <option value="New South Wales">New South Wales</option>
@@ -206,11 +201,12 @@
                       <option value="West Australia">West Australia</option>
                       <option value="Victoria ">Victoria </option>
                     </select>
+                    <input name="state" class="state_name" type="hidden" value="" />
 					          <form class="row g-3">
                       <i class="validate success fa fa-check-circle"></i>
                       <i class="validate error fa fa-times-circle"></i>
                   </div>
-                </div>-->
+                </div>
                 <div class="row align-items-center justify-content-center mt-4">
                   <div class="checkbox-col col-lg-8 text-center">
                     <div class="checkbox-area position-relative"> 
@@ -396,14 +392,7 @@ Easy Comparisons</a>
  </div>
 	 
 <script type="text/javascript">
-
-var input = document.querySelector("#phone");
-window.intlTelInput(input, {
-  utilsScript: "https://intl-tel-input.com/node_modules/intl-tel-input/build/js/utils.js?18",
-});
-var iti = window.intlTelInputGlobals.getInstance(input);
-iti.setCountry("gb");
-input.addEventListener("countrychange", function() {
-  $('#dealform').parsley().validate()
-});
+  function setStateName(){
+    document.querySelector(".state_name").value = document.querySelector("#property").options[document.querySelector("#property").options.selectedIndex].text
+  }
 </script>

@@ -23,14 +23,16 @@ class PagesController < ApplicationController
             "email" => params["email"],
             "firstname" =>params["first_name"],
             "lastname" => params["last_name"],
-            "phone1" => params["phone"]
+            "phone1" => params["phone"],
             # "postcode" => params["postcode"],
             # "towncity" => params["towncity"],
             # "county" => params["county"],
             # "street1" => params["street1"],
             # "building" => params["building"]
         }
-
+        if params["page_name"].eql?("aus")
+            form_data = form_data.merge({"state" => params["state"]})
+        end
         url = "https://dukeleads.leadbyte.co.uk/api/submit.php?returnjson=yes&campid=INVESTMENT"
         uri = URI(url)
         res = Net::HTTP.post_form(uri,form_data)

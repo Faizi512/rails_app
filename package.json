@@ -6,6 +6,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+    "intl-tel-input": "^17.0.16",
     "jquery": "^3.6.0",
     "jquery-ui-dist": "^1.13.1",
     "parsleyjs": "^2.9.2",
