@@ -1,3 +1,4 @@
+import { cutOffByFlag } from "webpack-cli/bin/utils/errorHelpers";
 import "./parsley"
 import "./rangeslider.min"
 
@@ -235,26 +236,30 @@ validate();
     });
   }
 
-   function validatePhone(){
-      window.Parsley.addValidator('validphone', {
-        validateString: function(value){
-          var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=7b32461b4afd7912a0669d5cf2369d50&value='+$('.phone').val());
-          return xhr.then(function(json) {
-            if (json.status == "Valid") {
-              isPhone = true
-              return true
-            }else{
-              isPhone=true
-              return true
-              return $.Deferred().reject("Please Enter Valid Phone Number");
-            }
-          })
-        },
-        messages: {
-           en: 'Please Enter Valid Phone Number',
-        }
-      });
-    }
+  function validatePhone(){
+    window.Parsley.addValidator('validphone', {
+      validateString: function(value){
+        var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=7b32461b4afd7912a0669d5cf2369d50&value='+$('.phone').val());
+        return xhr.then(function(json) {
+          if (json.status == "Valid") {
+            isPhone = true
+            document.querySelector("#phone").innerHTML = document.querySelector("#phone").innerHTML + `<i class="validate success fa fa-check-circle"></i>`
+            return true
+          }else{
+            isPhone=true
+            return $.Deferred().reject("Please Enter Valid Phone Number");
+          }
+        })
+      },
+      messages: {
+          en: 'Please Enter Valid Phone Number',
+      }
+    });
+    const phoneInputField = document.querySelector("#phone");
+    window.intlTelInput(phoneInputField, {
+      utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+  }
 
   function validateEmail(){
     window.Parsley.addValidator('validemail', {

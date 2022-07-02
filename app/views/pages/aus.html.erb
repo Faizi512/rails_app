@@ -158,22 +158,23 @@
 				  <p class="had_par">Register and Start Comparing</p> -->
               <div class="row w-100 m-0">
                 <div class="col-md-6 mt-4 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0"> 
-					<label class="text-start  w-100 mb-1 form-label"><strong>What's your email address?</strong></label>
+					        <label class="text-start  w-100 mb-1 form-label"><strong>What's your email address?</strong></label>
                   <input placeholder="Email" id="email" name="email" class="email px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control" data-parsley-required="true" data-parsley-required-message="Please Enter Valid Email Address" data-parsley-group="block-4" data-parsley-type="email" data-parsley-validemail="" type="email" required="">
-                    <i class="validate success fa fa-check-circle"></i>
-                    <i class="validate error fa fa-times-circle"></i>
+                  <i class="validate success fa fa-check-circle"></i>
+                  <i class="validate error fa fa-times-circle"></i>
                 </div>
+                
                 <div class="col-md-6 mt-4 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0">
                   <label class="text-start  w-100 mb-1 form-label"><strong>Phone No</strong></label>
-                  <input placeholder="Phone No" id="phone" name="phone"
-                                     class="phone px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control"
-                                     data-parsley-required="true"
-                                     data-parsley-required-message="Please Enter Valid Phone Number"
-                                     data-parsley-group="block-4" data-parsley-type="number" data-parsley-validphone
-                                     type="tel" required="">
-                    <i class="validate success fa fa-check-circle"></i>
-                    <i class="validate error fa fa-times-circle"></i>
-                                     <div class="phoneerror"></div>
+                  <input id="phone" name="phone" placeholder="Phone No"
+                    class="phone px-2 hv-50 mx-auto border border-secondary bg-white rounded text-secondary form-control"
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please Enter Valid Phone Number"
+                    data-parsley-group="block-4" data-parsley-type="number" data-parsley-validphone
+                    type="tel" required="">
+                  <i class="validate success fa fa-check-circle" id="success_icon"></i>
+                  <i class="validate error fa fa-times-circle" id="error_icon"></i>
+                  <div class="phoneerror"></div>
                 </div>
 	<!--			  		  <div class="col-md-6 pl-md-0 pr-md-2 px-0 text-center form-group position-relative mb-md-3 mb-0"> 
 						  <label class="text-start  w-100 mb-1 form-label"><strong>Postal Code</strong></label>
@@ -394,5 +395,5 @@ Easy Comparisons</a>
 <script type="text/javascript">
   function setStateName(){
     document.querySelector(".state_name").value = document.querySelector("#property").options[document.querySelector("#property").options.selectedIndex].text
-  }
+  }  
 </script>
