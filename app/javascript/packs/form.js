@@ -39,7 +39,6 @@ validate();
   });
 
   $( "#btn-submit" ).click(function() {
-    debugger
     if (anOtherValidate() == true && isEmail == true ) {
       $('#btn-submit').prop('disabled', true);
       postData();
@@ -175,9 +174,9 @@ validate();
         return field.$element.parent()
       },
     })
-    // validatePhone()
+    validatePhone()
     validateEmail()
-    validateApiPostcode()
+    // validateApiPostcode()
   }
 
   function validateApiPostcode(){
